@@ -1,65 +1,54 @@
+var employeePage = {}
+let addEmployee = require('../testAssets/addEmployee')
+let deleteEmployee = require('../testAssets/deleteEmployee')
+let editEmployee = require('../testAssets/editEmployee')
 module.exports = {
     beforeEach: browser => {
-        browser.url('https://devmountain-qa.github.io/employee-manager/1.2_Version/index.html')
-        .waitForElementPresent("#root")
+        employeePage = browser.page.employeePage()
+        employeePage.navigate()
     },
     after: browser => {
-        browser.end()
+        employeePage.end()
+    },
+
+    
+    'Add Employee': browser => {
+
+        addEmployee(employeePage)
+        deleteEmployee(employeePage,'@myEmployee')
+    employeePage
+        .pause(5000)
     },
     'Edit Employee and save': browser => {
-
-        browser
-        .waitForElementVisible('.titleText')
-        .click('[name="employee1"]')
-        .verify.visible('#saveBtn')
-        .setValue('[name="nameEntry"]',"This is edited")
-        .click('#saveBtn')
-        .verify.containsText('[name="employee1"]',"This is edited")
+    
+        addEmployee(employeePage)
+        employeePage.pause(5000)
+        editEmployee(employeePage)
+        employeePage.pause(5000)
+    employeePage
+        .verify.visible('@saveBtn')
+        .click('@saveBtn')
+        .expect.element('@editedEmployee').to.be.present
+    employeePage
+        deleteEmployee(employeePage,'@editedEmployee')
         
 
     },
 
     'Edit Employee and Cancel': browser => {
 
-        browser
-        .waitForElementVisible('.titleText')
-        .click('[name="employee1"]')
-        .verify.visible('[name="cancel"]')
-        .setValue('[name="nameEntry"]',"This is edited")
-        .click('[name="cancel"]')
-        .verify.containsText('[name="employee1"]',"Bernice Ortiz")
-        
+        addEmployee(employeePage)
+        editEmployee(employeePage)
+    employeePage
+        .verify.visible('@cancelBtn')
+        .click('@cancelBtn')
+        .expect.element('@editedEmployee').to.not.be.present
+    employeePage
+        .expect.element('@myEmployee').to.be.present
+    employeePage
+        deleteEmployee(employeePage,'@myEmployee')
 
     },
-
-    'Switch between Employees': browser => {
-
-        browser
-        .waitForElementVisible('.titleText')
-        .click('[name="employee1"]')
-        .verify.visible('#saveBtn')
-        .verify.containsText('#employeeTitle',"Bernice Ortiz")
-        .click('[name="employee2"]')
-        .verify.visible('#saveBtn')
-        .verify.containsText('#employeeTitle',"Marnie Barnett")
-        
-
-    },
-
-    'Add Employees': browser => {
-
-        browser
-        .waitForElementVisible('.titleText')
-        .click('[name="addEmployee"]')
-        .verify.visible('[name="employee11"]')
-        .click('[name="employee11"]')
-        .verify.visible('#saveBtn')
-        .setValue('[name="nameEntry"]',"The Test Worked")
-        .click('#saveBtn')
-        .verify.containsText('#employeeTitle',"The Test Worked")
-        .verify.containsText('[name="employee11"]',"The Test Worked")
-
-    }
 
 
 
