@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="3">
+            tests="7">
 
   <testsuite name="test"
     errors="0" failures="0" hostname="" id="" package="test" skipped="0"
-    tests="3" time="32.08" timestamp="">
+    tests="7" time="17.09" timestamp="">
   
-    <testcase name="Add Employee" classname="test" time="9.884" assertions="4">
+    <testcase name="Add Employee" classname="test" time="4.852" assertions="4">
 
     
 
@@ -18,7 +18,7 @@
     
     </testcase>
   
-    <testcase name="Edit Employee and save" classname="test" time="16.38" assertions="7">
+    <testcase name="Edit Employee and save" classname="test" time="6.284" assertions="7">
 
     
 
@@ -35,7 +35,7 @@
     
     </testcase>
   
-    <testcase name="Edit Employee and Cancel" classname="test" time="5.816" assertions="8">
+    <testcase name="Edit Employee and Cancel" classname="test" time="5.775" assertions="8">
 
     
 
@@ -52,6 +52,18 @@
     
 
     
+    </testcase>
+  
+    <testcase name="Get Employee List" classname="test" time="0.05500" assertions="0">
+    </testcase>
+  
+    <testcase name="Add Employee via API" classname="test" time="0.04300" assertions="0">
+    </testcase>
+  
+    <testcase name="Edit Employee via API" classname="test" time="0.03900" assertions="0">
+    </testcase>
+  
+    <testcase name="Delete Employee via API" classname="test" time="0.03900" assertions="0">
     </testcase>
   
 

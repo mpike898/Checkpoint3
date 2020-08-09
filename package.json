@@ -1,0 +1,22 @@
+{
+  "name": "employeemanagerv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nightwatch.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpike898/Checkpoint3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpike898/Checkpoint3/issues"
+  },
+  "homepage": "https://github.com/mpike898/Checkpoint3#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
